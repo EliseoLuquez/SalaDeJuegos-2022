@@ -6,10 +6,10 @@ import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'home', component:HomeComponent},
   //{path:'ingreso', loadChildren: () => import('./ingreso/ingreso.module').then(m => IngresoModule)},
   {path:'quienSoy', component:QuienSoyComponent},
   {path:'login', component:LoginComponent},
+  // {path:'**', component:ErrorComponent},
 ];
 
 @NgModule({
