@@ -8,6 +8,11 @@ import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { AngularFireModule } from '@angular/fire/compat';
+
+import { environment } from 'src/environments/environment';
+import { RegisterComponent } from './componentes/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +20,15 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     HomeComponent,
     LoginComponent,
     QuienSoyComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

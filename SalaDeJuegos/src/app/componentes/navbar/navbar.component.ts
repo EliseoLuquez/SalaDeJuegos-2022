@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Usuario } from 'src/app/shared/usuario';
 
 @Component({
   selector: 'app-navbar',
@@ -8,48 +12,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-    //usuario!: User;
-    // logueado: boolean = false;
-    // email!: string;
-    // usuario: User = new User();
-  
-    // constructor(public router: Router, public authSvc: AuthService, private ls: LocalStorageService) {
-      
-    // }
-    constructor(public router: Router){}
-    ngOnInit(): void {
-      // console.log(this.ls.get('usuarioLs'));
-      
-      // if(this.ls.get('usuarioLs') == null){
-      //   this.logueado = false;
-      //   this.usuario.logueado = false;;
-      // }
-      // else{
-      //   this.authSvc.logueado = true;
-      //   this.logueado = true;
-      //   this.usuario = JSON.parse(this.ls.get('usuarioLs'));
-        
-      // }
-      // console.log(this.logueado);
+    email!: string;
+    public usuario$: Observable<any> = this.authSvc.afAuth.user;
 
-
-      // this.authSvc.afAuth.authState.subscribe(res=>{
-      //   if(res && res.uid){
-      //     console.log(res);;
-      //     this.logueado = true;
-      //     this.usuario.email = res.email || "";
-      //     //this.ls.set("usuarioLs", JSON.stringify(this.usuario));
-      //     this.email = res.email || "";
-      //   }
-  
-      // });
+    constructor(public router: Router, public ls: LocalStorageService, public authSvc: AuthService) { }
+    async ngOnInit(): Promise<void> {
     }
   
   
-    logout(){
-      // this.authSvc.onLogout();
-      // this.ls.remove("usuarioLs");
-      // this.logueado = false;
+    onLogout(){
+      this.router.navigate(['home']);
+      this.authSvc.logout();
     }
     goPreguntados(){
       this.router.navigate(['juegos/preguntados']);
@@ -69,8 +42,8 @@ export class NavbarComponent implements OnInit {
     goHome(){
       this.router.navigate(['']);
     }
-    goJuegoPropio(){
-      this.router.navigate(['juegos/juegoPropio']);
+    goFlechas(){
+      this.router.navigate(['juegos/flechas']);
     }
     goEncuesta(){
       this.router.navigate(['encuesta']);
@@ -79,6 +52,6 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['login']);
     }
     goRegistro(){
-      this.router.navigate(['ingreso/registro']);
+      this.router.navigate(['register']);
     }
 }
