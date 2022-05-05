@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatComponent } from './componentes/chat/chat.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'quienSoy', component:QuienSoyComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
+  {path:'chat', component:ChatComponent},
   {path: 'juegos', loadChildren: () => import('./juegos/juegos.module').then(m => JuegosModule)},
   // {path:'**', component:ErrorComponent},
 ];

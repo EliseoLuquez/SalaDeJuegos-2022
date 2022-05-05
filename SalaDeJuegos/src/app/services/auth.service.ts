@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ignoreElements } from 'rxjs';
 import { Usuario } from '../shared/usuario';
 
 
@@ -81,11 +82,18 @@ export class AuthService {
 
 
   async getUserLogged() {
-    return this.afAuth.authState;
+    return this.afAuth.onAuthStateChanged(usuario => {
+      if(usuario)
+      {
+        console.log(usuario);
+        
+      }
+    });
   }
 
   logout() {
     this.afAuth.signOut();
   }
+
 
 }

@@ -44,9 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   async logEliseo() {
-    //   console.log(this.user);
-    //   this.email = 'leliseo89@hotmail.com';
-    //   this.password = '123456';
-    //   console.log(this.authSvc.msjError);
+      this.email = 'leliseo89@hotmail.com';
+      this.password = '123456';
   }
 }

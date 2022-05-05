@@ -9,9 +9,10 @@ import { LoginComponent } from './componentes/login/login.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './componentes/register/register.component';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 
 @NgModule({
@@ -21,13 +22,15 @@ import { RegisterComponent } from './componentes/register/register.component';
     LoginComponent,
     QuienSoyComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
     
   ],
   providers: [],
