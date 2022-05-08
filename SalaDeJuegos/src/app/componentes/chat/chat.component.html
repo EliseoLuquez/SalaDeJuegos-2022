@@ -5,7 +5,7 @@
         </div>
         <div class="col">
             <div *ngFor="let mensaje of msjs">
-                <div *ngIf="mensaje.usrActual">
+                <div *ngIf="!mensaje.usrActual">
                     <div class="row mt-3 container" >
                         <div class="col-3">
                             <p><strong>{{mensaje.email}}</strong></p>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="!mensaje.usrActual">
+                <div *ngIf="mensaje.usrActual">
                     <div class="row mt-3 container darker">
                         <div class="col-9 d-flex align-self-center">
                             <div class="alert alert-success alert-right w-100 text-right">

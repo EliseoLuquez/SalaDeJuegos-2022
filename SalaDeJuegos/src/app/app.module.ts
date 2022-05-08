@@ -13,7 +13,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './componentes/register/register.component';
 import { ChatComponent } from './componentes/chat/chat.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,9 @@ import { ChatComponent } from './componentes/chat/chat.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

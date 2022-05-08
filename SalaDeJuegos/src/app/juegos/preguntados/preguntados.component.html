@@ -1,1 +1,50 @@
-<p>preguntados works!</p>
+<h1 class="text-center">PREGUNTADOS</h1>
+<input type="button" class="btn btn-success btn-block" (click)="onEmpezar()" [hidden]="empezar" value="Empezar">
+<input type="button" class="btn btn-success btn-block" (click)="onEmpezar()" [hidden]="!juegoTerminado" value="Volver a Jugar">
+<div class="containaer" *ngIf="empezar">
+    <div class="row">
+        <div class="col-12" *ngIf="!juegoTerminado">
+            <img id="imgPsj" src="{{img}}">
+        </div>
+        <div class="col-12 text-center">
+            <h1>Puntos:</h1><h1>{{puntos}}</h1> 
+          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-12" *ngIf="!juegoTerminado">
+                        <h3 class="text-center">¿Qué personaje de los Simpson es?</h3>
+                    </div>
+                    <div class="col-12" *ngIf="juegoTerminado">
+                        <div *ngIf="correcta">
+                            <h3 class="text-center alert-success">{{mensaje}}</h3>
+                        </div>
+                        <div *ngIf="!correcta">
+                            <h3 class="text-center alert-danger">{{mensaje}}</h3>
+                        </div>
+                    </div>
+                    <div *ngIf="ordenadas && !juegoTerminado">
+                        <div *ngFor="let psj of arrayPersonajes">
+                            <div class="col-12">
+                                <button (click)="correcto(psj.character)" class="form-control">{{psj.character}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div *ngFor="let puntaje of listaOrdenada">
+            <div class="row">
+                <div class="col-4">
+                  <h4>{{puntaje.usuario}}</h4>
+                </div>
+                <div class="col-4">
+                  <h4>{{puntaje.puntos}}</h4>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

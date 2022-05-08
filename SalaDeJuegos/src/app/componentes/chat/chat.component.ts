@@ -22,28 +22,18 @@ export class ChatComponent implements OnInit {
   lsUsuarioEmail!: any;
   usuarioActual: boolean = false;
   mail!: string;
-  //public usuario$: Observable<any> = this.authSvc.afAuth.user;
+  public usuario$: Observable<any> = this.authSvc.afAuth.user;
   usuario!: any;
   userMail!: string;
-  constructor(public afAuth: AuthService, private chatSvc: ChatService, public router: Router, ls: LocalStorageService, public authSvc: AuthService) {
-    // let usuarioEmailLS = ls.get('UserMail');
-    // this.lsUsuarioEmail = usuarioEmailLS?.toString();
-    //this.lsUsuarioEmail = ls.get('UserMail');
-    //this.usuario$.pipe((user: any) => this.usuario = user);
-    var usuario = this.authSvc.getUserLogged();
-    console.log(this.userMail);
-    //this.userMail = usuario['email'];
+  constructor(public authSvc: AuthService, private chatSvc: ChatService, public router: Router, ls: LocalStorageService) {
+    this.usuario$.subscribe((result: any) => {
+      this.userMail = result['email'];
+    });
+
    }
 
   ngOnInit(): void {
     this.getMensajes();
-    //this.userMail = this.afAuth.usuario.email.toString();
-    // if(this.lsUsuarioEmail.includes(this.userMail)){
-    //   this.usuarioActual = true;
-    // }
-    // console.log(this.lsUsuarioEmail);
-    // console.log(this.userMail);
-    
   }
 
   getMensajes() {
@@ -56,17 +46,10 @@ export class ChatComponent implements OnInit {
     ).subscribe((mensajes: any) => {
       this.msjs = mensajes;
       this.msjs.forEach((element:any) =>{
-        // console.log(element.email.toString());
-        // this.mail = element.email;
-        // console.log(this.mail);
-        // if(this.lsUsuarioEmail.includes(element.email)){
-        //   element.usrActual = true;
-          
-        // }
+        if(this.userMail.includes(element.email)){
+          element.usrActual = true;
+        }
       });
-      
-      console.log(this.msjs);
-      
     });
   }
 
@@ -74,7 +57,7 @@ export class ChatComponent implements OnInit {
     let msj = new ChatMensaje();
     msj.mensaje = this.msjUsuario;
     msj.fecha = new Date().toLocaleString();
-    //msj.email = this.afAuth.usuario.email;
+    msj.email = this.userMail;
     msj.usrActual = false;
     this.chatSvc.addMensaje(msj);
     this.msjUsuario = "";

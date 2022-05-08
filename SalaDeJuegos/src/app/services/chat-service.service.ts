@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList,  } from '@angular/fire/compat/database';
 import { ChatMensaje } from '../shared/chat-mensaje';
+import { Usuario } from '../shared/usuario';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
