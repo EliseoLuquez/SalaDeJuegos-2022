@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { PuntajeService } from 'src/app/services/puntaje.service';
 import { Puntos } from 'src/app/shared/puntos';
@@ -48,13 +49,20 @@ export class FlechasComponent implements OnInit {
   listaPuntajes: Array<Puntos> = new Array<Puntos>();
   listaOrdenada: Array<Puntos> = new Array<Puntos>();
   usuario: Usuario = new Usuario();
+  public usuario$: Observable<any> = this.authService.afAuth.user;
 
   constructor(public router: Router, public authService: AuthService, public puntajeSvc: PuntajeService) { 
     this.puntajeSvc.cargarPuntajesFchs();
+    this.usuario$.subscribe((result: any) => {
+      this.usuario.email = result['email'];
+      this.usuario.id = result['uid']
+
+    });
+   
   }
 
   ngOnInit(): void {
-    //this.usuario = JSON.parse(this.ls.get('usuarioLs'));
+
   }
 
   empezar(){

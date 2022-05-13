@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './componentes/register/register.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     QuienSoyComponent,
     NavbarComponent,
     RegisterComponent,
-    ChatComponent
+    ChatComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

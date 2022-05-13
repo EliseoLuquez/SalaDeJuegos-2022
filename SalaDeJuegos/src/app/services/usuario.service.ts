@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import firebase from 'firebase/compat';
 import { map, Observable } from 'rxjs';
 import { Usuario } from '../shared/usuario';
 

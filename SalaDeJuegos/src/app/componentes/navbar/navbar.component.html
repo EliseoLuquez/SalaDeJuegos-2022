@@ -18,7 +18,7 @@
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goAhorcado()" *ngIf="usuario">Ahorcado</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goPreguntados()" *ngIf="usuario">Preguntados</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goFlechas()" *ngIf="usuario">Flechas</a>
-      <!-- <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goEncuesta()" *ngIf="usuario">Encuesta</a> -->
+      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goEncuesta()" *ngIf="usuario">Encuesta</a>
       <a class="py-2 d-none d-md-inline-block btn" *ngIf="usuario">{{usuario?.email}}</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="onLogout()" *ngIf="usuario">Logout</a>
     </div>
