@@ -13,10 +13,12 @@
     <div *ngIf="usuario$ | async as usuario; else login">
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goHome()"> Home </a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goQuienSoy()" *ngIf="usuario"> Quien Soy </a>
-     <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goChat()" *ngIf="usuario">Chat</a> 
-      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goMayorMenor()" *ngIf="usuario">Mayor o Menor</a>
+      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goChat()" *ngIf="usuario">Chat</a>
+      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goMayorMenor()" *ngIf="usuario">Mayor o
+        Menor</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goAhorcado()" *ngIf="usuario">Ahorcado</a>
-      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goPreguntados()" *ngIf="usuario">Preguntados</a>
+      <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goPreguntados()"
+        *ngIf="usuario">Preguntados</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goFlechas()" *ngIf="usuario">Flechas</a>
       <a class="py-2 d-none d-md-inline-block btn" type="button" (click)="goEncuesta()" *ngIf="usuario">Encuesta</a>
       <a class="py-2 d-none d-md-inline-block btn" *ngIf="usuario">{{usuario?.email}}</a>

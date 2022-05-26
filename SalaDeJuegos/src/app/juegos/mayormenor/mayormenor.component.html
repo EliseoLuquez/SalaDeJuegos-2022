@@ -1,26 +1,33 @@
 <div class="card mb-4 box-shadow">
-    <div class="card-header">
-      <h1 class="my-0 font-weight-normal text-center"><strong>MAYOR Y MENOR</strong></h1>
-      <img id="imgEmp" src="../../../assets/mayormenor/Ace of Clubs.png" *ngIf="!empezado">
-    </div>
-    <button type="button" class="btn btn-lg btn-block btn-primary" id="empezar" [hidden]="empezado"
-      (click)='empezar()'>Empezar</button>
-    <div class="col-12" *ngIf="resultado">
-      <h1 class="text-center">{{mensaje}}</h1>
-    </div>
-    <div class="col-12" *ngIf="resultado">
-      <h1 class="text-center">Puntos: {{puntosAux}}</h1>
-      <div *ngFor="let puntaje of listaOrdenada">
-        <div class="row">
-          <div class="col-4">
-            <h4>{{puntaje.usuario}}</h4>
-          </div>
-          <div class="col-4">
-            <h4>{{puntaje.puntos}}</h4>
-          </div>
+  <div class="card-header">
+    <h1 class="my-0 font-weight-normal text-center"><strong>MAYOR Y MENOR</strong></h1>
+    <img id="imgEmp" src="../../../assets/mayormenor/Ace of Clubs.png" *ngIf="!empezado">
+  </div>
+  <button type="button" class="btn btn-lg btn-block btn-primary" id="empezar" [hidden]="empezado"
+    (click)='empezar()'>Empezar</button>
+  <div class="col-12" *ngIf="resultado">
+    <h1 class="text-center">{{mensaje}}</h1>
+  </div>
+  <div class="col-12" *ngIf="resultado">
+    <h1 class="text-center">Puntos: {{puntosAux}}</h1>
+    <br>
+    <hr>
+    <label>Mejores Puntajes</label>
+    <div *ngFor="let puntaje of listaOrdenada">
+      <div class="row">
+        <div class="col-4">
+          <h4>{{puntaje.usuario}}</h4>
+        </div>
+        <div class="col-4">
+          <h4>{{puntaje.puntos}}</h4>
         </div>
       </div>
     </div>
+  </div>
+  <br>
+  <hr>
+  <div class="container">
+    <label>Mejores Puntajes</label>
     <div class="card-body col-sm-6 align-self-center" *ngIf="empezado">
       <br>
       <div class="col-12 text-center">
@@ -32,3 +39,4 @@
       <button type="button" class="btn btn-lg btn-block alert-danger" (click)='cartaMayor()'>Mayor</button>
       <button type="button" class="btn btn-lg btn-block alert-success" (click)='cartaMenor()'>Menor</button>
     </div>
+  </div>
